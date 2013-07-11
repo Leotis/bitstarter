@@ -6,7 +6,8 @@ var d = "";
 app.get('/', function(request, response) {
 
     fs.readFileSync('index.html', function (data) {
-	response.send(data);
+	var buf = new Buffer(data);
+	response.send(buf.toString('utf8'));
     });
 
     
